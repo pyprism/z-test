@@ -10,3 +10,17 @@ services:
       - "8000:8000"
     environment:
       - DEBUG=True
+  celery:
+    build: .
+    command: celery -A proj worker -l DEBUG
+    volumes:
+      - .:/src/
+    environment:
+      - DEBUG=True
+#      - CELERY_BROKER=redis://redis:6379/0
+#      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - web
+      - redis
+  redis:
+    image: redis:6-alpine
