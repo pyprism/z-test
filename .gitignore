@@ -1,5 +1,6 @@
 .idea/
 .venv
+media/*
 config.local.json
 *.pyc*
 db.sqlite3
