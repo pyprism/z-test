@@ -8,6 +8,9 @@ from image.tasks import process_site_url
 
 
 class UrlViewSet(viewsets.ModelViewSet):
+    """
+    URL ViewSet for adding and retrieving URLs for scrapping
+    """
     queryset = URL.objects.get_all_urls()
     serializer_class = URLSerializer
 
@@ -21,6 +24,9 @@ class UrlViewSet(viewsets.ModelViewSet):
 
 
 class ImageViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Image ViewSet for retrieving, filtering images
+    """
     queryset = Image.objects.get_all_image()
     serializer_class = ImageSerializer
 
